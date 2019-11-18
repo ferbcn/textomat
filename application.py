@@ -14,4 +14,9 @@ Session(app)
 ### Routes ###
 @app.route("/", methods=["GET", "POST"])
 def index():
-    return render_template("index.html")
+    text = request.form.get("text-input")
+    if not text:
+        text = "Hello World!"
+    print(text)
+
+    return render_template("index.html", output=text)

@@ -2,17 +2,29 @@
 
 {% block heading %}
 <div class="container">
-      <h6>Write something...</h6>
+      <h5>textomat: ai text generation...</h5>
 </div>
 {% endblock %}
 
 {% block body %}
 
 <div class="container">
-      <form action="{{ url_for('index') }}" method="post">
-          <div class="form-group">
-          </div>
-          <p><button class="btn btn-danger">Send</button></p>
-      </form>
+
+  <form action="{{ url_for('index') }}" method="post">
+      <div class="input-group">
+          <input pattern=".{3,50}" class="form-control" type="text" name="text-input">
+          <span class="input-group-btn">
+          <button class="btn btn-danger" type="submit" onclick="">Send</button>
+         </span>
+      </div>
+    </form>
+
+</div>
+
+<div class="container">
+    <div class="text-area">
+        {% if output %}{{ output }}{% endif %}
+    </div>
+</div>
 
 {% endblock %}
