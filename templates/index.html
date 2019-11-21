@@ -7,26 +7,30 @@
 {% block body %}
 
 <div class="container">
-    <h5>textomat: ai text generation...</h5>
+    <h5>text-o-mat: machine text generator!
+    <button class="btn btn-danger clearbutton" onclick="cleartext()">clear</button>
+    </h5>
 </div>
 
+<!--
 <div class="container">
-
-  <form action="{{ url_for('index') }}" method="post">
       <div class="input-group">
-          <input pattern=".{3,50}" class="form-control" type="text" name="text-input">
-          <span class="input-group-btn">
-          <button class="btn btn-danger" type="submit" onclick="">Send</button>
-         </span>
+          <input pattern=".{3,50}" class="form-control" type="text" name="text-input" placeholder="whats on your mind?">
+          <button class="btn btn-danger" type="submit" onclick="loadtext(); return 0;">Send</button>
+          <button class="btn btn-info" type="submit" onclick="cleartext()">clear</button>
       </div>
-    </form>
 
 </div>
+-->
 
-<div class="container">
-    <div class="text-area">
-        {% if output %}{{ output }}{% endif %}
-    </div>
+<div class="container outputarea">
+  <div class="text-area" id="textoutput">
+          {% if output %}{{ output }}{% endif %}
+  </div>
 </div>
+
+<script src="{{ url_for('static', filename='index.js') }}"></script>
+
+<script src="{{ url_for('static', filename='core.js') }}"></script>
 
 {% endblock %}
