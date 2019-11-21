@@ -1,8 +1,6 @@
 // Connect to websocket
-if (socket)
-  socket.socket.connect(location.protocol + '//' + document.domain + ':' + location.port);
-else
-  var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
+var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
+
 //console.log(socket);
 
 // When connected, configure buttons
