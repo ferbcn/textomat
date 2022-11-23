@@ -17,20 +17,23 @@ def get_text(data):
     quote = f"server says: {data}"
     return quote
 
+
 ### Routes ###
 @app.route("/", methods=["GET"])
 def index():
     # store current text in session
     return render_template("index.html")
 
+
 @socketio.on("textinput")
 def generate_text(data):
-    #print("Socket message received!")
-    #text = data.get("text")
+    # print("Socket message received!")
+    # text = data.get("text")
     text = get_text(data)
     print("sending data: ", text)
     emit("newdata", text, broadcast=False)
 
+
 if __name__ == '__main__':
     app.debug = False
-    app.run(host = '0.0.0.0',port=5000)
+    app.run(host='0.0.0.0', port=5000)
