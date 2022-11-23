@@ -1,5 +1,4 @@
 import os
-import requests
 from flask import Flask, render_template, request, session, json, abort, make_response
 from flask_session import Session
 from flask_socketio import SocketIO, emit
@@ -12,7 +11,6 @@ socketio = SocketIO(app)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
-
 
 
 def get_text(data):

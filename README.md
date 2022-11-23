@@ -1,4 +1,4 @@
 # textomat
 
-text Prediction based on user input
+text prediction based on user input
 
